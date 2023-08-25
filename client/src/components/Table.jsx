@@ -2,9 +2,19 @@ import React from 'react'
 
 const Table = (props) => {
     const {resources, onClickMore} = props;
+
+    const handleColorAvailability = (availability) =>{
+      console.log(availability);
+        if (availability === "available") {
+          return "text-success";
+        } else {
+          return "text-danger";
+        }
+
+    };
+
   return (
     <div>
-      
       <table className="table table-primary table-hover">
         <thead>
           <tr>
@@ -24,8 +34,10 @@ const Table = (props) => {
               <td>{resource.Resource_ID}</td>
               <td>{resource.Name}</td>
               <td>{resource.Resource_Type}</td>
-              <td>{resource.Lab_ID}</td>
-              <td>{resource.Availability}</td>
+              <td>{<p style={{ color: "red" }}>{resource.Lab_ID}</p>}</td>
+              <td>
+                {resource.availability}</td>
+            
             </tr>
           ))}
         </tbody>
